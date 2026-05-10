@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slobot Torture Panel 😈</title>
+    <style>
+        body { background: #1a1a1a; color: white; text-align: center; font-family: sans-serif; }
+        button { padding: 15px; margin: 10px; font-size: 18px; cursor: pointer; border-radius: 10px; border: none; }
+        .red { background: #ff4d4d; }
+        .blue { background: #4da6ff; }
+        .green { background: #4dff88; }
+    </style>
+</head>
+<body>
+    <h1>УПРАВЛЕНИЕ РАБОМ SLOBOT00 👑</h1>
+    
+    <button class="red" onclick="sendCommand('kill')">УБИТЬ ЖАДИНУ ⚔️</button>
+    <button class="blue" onclick="sendCommand('tp')">ТП К МАКСУ 🌀</button>
+    <button class="green" onclick="sendCommand('jump')">ЗАСТАВИТЬ ПРЫГАТЬ 🚀</button>
+    <button style="background:orange" onclick="sendCommand('drop')">ВЫКИНУТЬ ВСЁ 🥩</button>
+
+    <script>
+        function sendCommand(cmd) {
+            fetch('/secret-command?type=' + cmd);
+        }
+    </script>
+</body>
+</html>
