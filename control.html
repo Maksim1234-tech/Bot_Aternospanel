@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Slobot Torture Panel 😈</title>
+    <meta charset="UTF-8">
+    <title>МАКС-БОСС: ПАНЕЛЬ УПРАВЛЕНИЯ</title>
     <style>
-        body { background: #1a1a1a; color: white; text-align: center; font-family: sans-serif; }
-        button { padding: 15px; margin: 10px; font-size: 18px; cursor: pointer; border-radius: 10px; border: none; }
-        .red { background: #ff4d4d; }
-        .blue { background: #4da6ff; }
-        .green { background: #4dff88; }
+        body { background: #121212; color: #00ff00; font-family: 'Segoe UI', sans-serif; text-align: center; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px; max-width: 600px; margin: auto; }
+        button { 
+            padding: 20px; font-size: 18px; cursor: pointer; border: 2px solid #00ff00; 
+            background: #1a1a1a; color: #00ff00; border-radius: 15px; transition: 0.3s;
+        }
+        button:hover { background: #00ff00; color: #000; box-shadow: 0 0 20px #00ff00; }
+        .danger { border-color: #ff0000; color: #ff0000; }
+        .danger:hover { background: #ff0000; color: #fff; box-shadow: 0 0 20px #ff0000; }
     </style>
 </head>
 <body>
-    <h1>УПРАВЛЕНИЕ РАБОМ SLOBOT00 👑</h1>
-    
-    <button class="red" onclick="sendCommand('kill')">УБИТЬ ЖАДИНУ ⚔️</button>
-    <button class="blue" onclick="sendCommand('tp')">ТП К МАКСУ 🌀</button>
-    <button class="green" onclick="sendCommand('jump')">ЗАСТАВИТЬ ПРЫГАТЬ 🚀</button>
-    <button style="background:orange" onclick="sendCommand('drop')">ВЫКИНУТЬ ВСЁ 🥩</button>
+    <h1>🛰 СИСТЕМА ТРОЛЛИНГА СЛОБОТА 🛰</h1>
+    <div class="grid">
+        <button onclick="send('jump')">ЗАСТАВИТЬ ПРЫГАТЬ 🚀</button>
+        <button onclick="send('tp')">ТП К МАКСУ 🌀</button>
+        <button onclick="send('spin')">ДИСКОТЕКА (КРУТИТЬ) 💃</button>
+        <button onclick="send('say')">ЗАСТАВИТЬ ОРАТЬ 🗣️</button>
+        <button class="danger" onclick="send('kill')">УДАЛИТЬ С ЛИЦА ЗЕМЛИ 💀</button>
+        <button class="danger" onclick="send('lava')">LAVA BATH 🌋</button>
+    </div>
 
     <script>
-        function sendCommand(cmd) {
-            fetch('/secret-command?type=' + cmd);
+        function send(action) {
+            fetch('/execute?command=' + action)
+            .then(res => console.log('Сигнал ушел!'));
         }
     </script>
 </body>
